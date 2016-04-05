@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title> Final Profile Profile </title>
+		
+		<link rel="stylesheet" href="css/headerWithSubmenu.css">
+		<link rel="stylesheet" href="css/zonebar1.css">
+		
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.1.min.js"></script>	
+		<script type="text/javascript" src="employer-page.js"></script> 
+		<script type="text/javascript">
+		$(document).ready(function(){
+		   $("#downarrow").click(function() {
+			
+		   		var hidden = $(this).parents("li").children("ul").is(":hidden");
+				
+		   		
+				//$("#zone-bar>ul>li>ul").hide()        
+			   	//$("#zone-bar>ul>li>a").removeClass();
+			   		
+			   	if (hidden) {
+					
+			   		$(this)
+				   		.parent("li").children("ul").toggle()
+				   		.parent("li").children("a").addClass("zoneCur");
+				   	} 
+			   });		
+				
+				$("#userLink").click(function() {
+					var hidden = $(this).parents("li").children("ul").is(":hidden");
+		   		
+						$("#zone-bar>ul>li>ul").hide()        
+						$("#zone-bar>ul>li>a").removeClass();
+							
+						if (hidden) {
+							$(this)
+								.parents("li").children("ul").toggle()
+								.parents("li").children("a").addClass("zoneCur");
+							} 
+				});
+				
+				
+				function selectedHref(id) {
+					//do something with url
+					var selected = id;
+					alert("id..."+id);		
+					$('.submenuItem').each(function() {
+						$(this).removeClass('current');
+					});
+							
+					$('a[id="'+selected+'"]').addClass('submenuItem current');		
+							
+				}
+				
+				$('#submenu-zone-bar ul li a').click(function() {
+					$('#submenu-zone-bar ul li a.selected').removeClass( "selected" );
+					$(this).addClass( "selected" );
+				});
+				
+			   
+			 
+		});
+	</script>
+	
+  </head>  
+
+<body>
+	
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<div class="branding">
+					<a class="logo" href="/">
+						<img title="Explore Jobs" src="images/logo.png" alt="Explore Jobs">
+					</a>
+					<h2 class="tagline" > </h2>
+				</div>
+				<div class="pull-left">
+					<ul class="nav nav-tabs">
+						
+							<li>
+								<div class="vline">
+									<form class="navbar-search dropdown" action="/search">
+										<input id="search-input" class="search-query-normal span3" type="text" value="" placeholder="Enter location" name="query" autocomplete="off">
+										<span class="icon-magnifier"></span>
+										<div style="left:-10000px; position:absolute">
+											<input type="submit" value="search">
+										</div>
+									</form>
+								</div>
+							</li>
+							<li>
+								<form class="navbar-search dropdown" action="/search">
+									<input id="search-input1" class="search-query-normal span3" type="text" value="" placeholder="Search people and products" name="query" autocomplete="off">
+									<span class="icon-magnifier"></span>
+									<div style="left:-10000px; position:absolute">
+										<input type="submit" value="search">
+									</div>
+								</form>
+							</li> 
+						
+					</ul>
+				</div>
+				<div class="pull-right">
+					<ul class="nav">
+						<li>
+							<a  class="menuline" href="../website/aboutUs.html">About</a>
+								
+						</li>
+						<li>
+							<div id="zone-bar" class="menuline">
+								<ul >
+									<li>
+										<a href="#" id="userLink" ><span  >
+											tech &nbsp;
+											<img src="images/zonebar-downarrow.png" alt="dropdown" id="downarrow"/>
+											
+										</span></a>
+										<ul class="usersublist">
+											<li><a href="#">Settings</a></li>
+											<li><a href="#">My Profile</a></li>
+											<li><a href="#">Help</a></li>
+											<li><a href="#">Sign Out</a></li>
+											
+										</ul>
+									</li>
+									
+									
+								</ul>
+							</div>
+						</li>
+						
+					</ul>
+										
+				</div>
+			</div>
+		</div>
+
+		<div class="submenuouter">
+			<div class="submenu" id="submenu-zone-bar" style="width:570px;" >
+				<ul >
+					<li>
+						<a id="accountSettings"  class="submenuItem"  href="Employerpage.html" onclick="selectedHref(id); " id="helpLink">
+							Account Settings&nbsp;
+						
+						</a>
+						<ul class="profilesublist">
+											
+						</ul>
+					</li>
+					<li>
+						<a class="submenuItem"  href="CandidateListingPage.html" id="experienceLink" >
+							About Us&nbsp;
+							<!--	<em class="opener-user">
+								<img src="images/zonebar-downarrow.png" alt="dropdown" id="downarrow"/>
+							</em>
+							-->
+						</a>
+						<ul class="experiencesublist">
+											
+						</ul>
+					</li>
+					<li>
+						<a id="jobportalLink" class="submenuItem"  href="JobListingPage.html" >
+							Posted Jobs&nbsp;							
+						</a>
+						<ul class="jobportalsublist">
+											
+						</ul>
+					</li>
+					
+					<li>
+						<a id="candidatesLink" class="submenuItem" href="candidates.html" >
+							Candidates&nbsp;							
+						</a>
+						<ul class="jobportalsublist">
+											
+						</ul>
+					</li>
+					
+					<li>
+						<a class="submenuItem"  href="recruiters.html" id="helpLink"  >
+							Recruiters&nbsp;							
+						</a>
+						<ul class="profilesublist">
+											
+						</ul>
+					</li>
+					<li>
+						<a class="submenuItem"  href="#" id="helpLink"  >
+							Messages&nbsp;							
+						</a>
+						<ul class="profilesublist">
+											
+						</ul>
+					</li>
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
