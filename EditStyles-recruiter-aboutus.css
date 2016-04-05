@@ -1,0 +1,319 @@
+/*
+		
+			body {
+				color: #333333;
+				direction: ltr;
+				font-family: arial,'lucida grande',tahoma,verdana,sans-serif;
+				font-size: 12px;
+				line-height: 4.98;
+				text-align: left;
+				margin-top:1px;
+			} */
+
+			
+
+			.ContentArea{
+				float: left;
+				margin-right: 150px;
+				float: left;
+//				margin-left: 400px;
+				margin-left: 10px;
+				margin-top:30px;
+				word-wrap: break-word;
+				line-height: 3.98;
+//				border: 2px solid #E9E9E9;
+				width: 593px;
+				margin-bottom:-20px;
+			}
+
+			.ContentArea1{
+				float: left;
+				margin-right: 150px;
+				
+				margin-left: 10px;
+				margin-top:30px;
+				
+				line-height: 2;
+//				border: 2px solid #E9E9E9;
+				width: 593px;
+			}
+
+/* For pop-up forms */
+			.EditContentArea{
+				float: left;
+				margin-right: 1px;
+				float: left;
+				margin-left: 1px;
+				margin-top:1px;
+				padding-bottom:0px;
+				padding-top:1px;
+				word-wrap: break-word;
+				line-height: 2.98;
+//				border: 2px solid #E9E9E9;
+				width: 100%;
+			}
+			#emailEditArea{
+				width:530px;
+				margin-right:0px;
+			}
+
+			
+			.EditBigContentArea{
+				float: left;
+				margin-right: 1px;
+				float: left;
+				margin-left: 10px;
+				margin-top:1px;
+				padding-bottom:0px;
+				padding-top:1px;
+				line-height: 2.98;
+				width: auto;
+			}
+
+			.SettingsPage{
+				margin-bottom: 10px;
+				margin-top:10px;
+				min-height: 300px;
+				color: #333333;
+				direction: ltr;
+				font-family: arial,'lucida grande',tahoma,verdana,sans-serif;
+			}
+
+			.EditSettingsPage{
+				margin-bottom: 10px;
+				margin-top:0px;
+//				min-height: 300px;
+				color: #333333;
+				direction: ltr;
+				font-family: arial,'lucida grande',tahoma,verdana,sans-serif;
+			}
+
+
+			ul:not(.desc ul){
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+
+			}
+
+			.clearfix:after {
+				clear: both;
+				content: ".";
+				display: block;
+				font-size: 0;
+				height: 0;
+				line-height: 0;
+				visibility: hidden;
+				margin-bottom:0px;
+			}
+
+			a {
+				color: #3B5998;
+				cursor: pointer;
+				text-decoration: none;
+			}
+
+			.SettingsList {
+				background: none repeat scroll 0 0 transparent;
+				display: block;
+				text-decoration: none;
+			}
+
+			.EditSettingsList {
+				background: none repeat scroll 0 0 transparent;
+				display: block;
+				text-decoration: none;
+				margin-top:10px;
+			}
+
+/*			.expand.item-title Button{
+				float: right;
+				padding-left: 25px;
+				padding-right: 5px;
+				text-align: right;
+				margin-left:10px;
+
+			} */
+
+			.ItemLabel {
+			    color: #333333;
+				float: left;
+				width: 100px;
+				margin-left:39px;
+				
+				
+			}
+
+			.EditItemLabel {
+			    color: #333333;
+				float: left;
+				width: 69px;
+				margin-left:19px;
+				font-size:13px;
+			}
+
+			.ItemEdit{
+				color: #3B5998;
+				float: right;
+//				padding-left: 25px;
+//				padding-right: 5px;
+				text-align: right;
+				margin-right:50px;
+				
+				
+			}
+
+			.EditItemEdit{
+				color: #3B5998;
+				float: right;
+//				padding-left: 25px;
+//				padding-right: 5px;
+				text-align: right;
+				margin-right:40px;
+				
+			}
+
+			.ItemContent{
+			    display: block;
+				margin-left: 170px;
+				width: 450px;
+				color: #3B5998;
+			}
+
+			.EditItemContent{
+			    display: block;
+				margin-left: 100px;
+				width: 450px;
+				color: #3B5998;
+			}
+
+			.viewbutton{
+				position:absolute;
+				top:110px;
+				left:85px;
+			}
+
+			.expand .item-title Button{
+				margin-top:1px;
+			}
+
+			.expand .item-title p{
+				margin-top:12px;
+			}
+
+			hr{
+				color:#99FFFF;
+			
+			}
+
+			#jobButton {
+			  padding:1px;
+			  color:#FFFFFF;
+			  background: none repeat scroll 0 0 #0088CC;
+			  border-radius:20px;
+			  border: 2px solid #0088CC;
+
+			}
+
+
+		Button{
+			background: none repeat scroll 0 0 #0088CC;
+			border: medium none;
+			color: #FFFFFF !important;
+			cursor: pointer;
+			display: inline-block;
+			font-size: 11px;
+			font-weight: bold;
+			margin: 0 5px 0 0;
+			padding: 5px 15px;
+			position: relative;
+			text-decoration: none;
+
+		} 
+
+
+		/** Style for tabs (My Page) **/
+
+		.tabsWrapper {
+			 width:550px; 			
+		}
+		/*Tabs class is changed to Tabs ID 'cos of tabs border specificity in work sample list edit window*/	
+		#outertabs{
+			padding: 3px 0;			
+			border-bottom: 2px solid #ccc;			
+			width:572px;
+			margin-left:7px;
+			margin-top:16px;
+		}
+		
+		#tabs{
+			padding: 3px 0;			
+			border-bottom: 2px solid #ccc;			
+			width:326px;
+			margin-left:7px;
+			margin-top:16px;
+		}
+		#tabs li, #outertabs li{
+			list-style: none;
+			margin: 0;
+			display: inline;
+			border:none;
+		}
+		#tabs li a, #outertabs li a{
+			padding: 4px 0.5em;
+			margin-left:2px;
+			border-bottom: none;
+			background: #DAE8F6;
+			text-decoration: none;
+			font-size:1.0em;
+			color:0099CC;
+		}
+		#tabs li a:not(.selectedtab):hover , #outertabs li a:not(.selectedtab):hover{
+			background-color: #fff;
+			border:solid 1px #ccc;
+			border-bottom:none;
+		}
+		#tabs  a.selectedtab, #outertabs  a.selectedtab{
+			background:white;
+			border: 2px solid #ccc;
+			border-bottom: 2px solid white;
+			color:#000;/*#01A9DB;*/
+			cursor: default;
+			font-weight: bold;
+			z-index: 7;
+			padding:5px;
+		}
+		.tab-content {
+			clear:both;
+//			border-top:1px solid #ddd;
+			padding:10px;
+			margin-left:25px;
+			margin-top:20px;
+			height:300px;
+			width:580px;			
+		}
+
+		/*ul.tabs .selectedtab{			
+			  background-color:#01A9DB;   /*#58D3F7;    /*#81DAF5;   backgroud color for selected tab 
+			color:white;
+			cursor: default;
+			font-weight: bold;
+			z-index: 7;
+			border-bottom:none;/*dj
+			border:solid 2px #ccc;
+			border-bottom:solid 2px #fff;
+			width:69px;
+		}		
+		.spacer{
+		height:0px;
+
+		} */
+
+		/** End of Style for tabs (My Page) **/
+
+		.networklinks a{
+			color:#0088CC;
+			vertical-align:middle;
+		}
+
+
