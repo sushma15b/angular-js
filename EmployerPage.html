@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Employer page </title>
+		
+		<link rel="stylesheet" href="css/employerpagestyle.css">
+		
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.1.min.js"></script>
+		<script type="text/javascript" src="javascript/jquery.isotope.min.js"></script>		
+		<script type="text/javascript" src="javascript/modalPopLite.js"></script>
+		<script type="text/javascript" src="javascript/employer-page.js"></script>		
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+		<script src="javascript/turn.js"></script>
+		<link rel="stylesheet" href="css/EmployerPageCompanyJobs.css"></link>
+		<script type="text/javascript" src="javascript/EmployerPageCompanyJobs.js"></script>	
+		
+		<style type="text/css">
+			.hover { background-color: #ffC }
+			.inlineEdit-placeholder { font-style: italic; color: #555; }
+		</style>
+		<script type="text/javascript">
+			(function($){
+				$(window).load(function(){
+					//$(".resumeBody").mCustomScrollbar({theme:"light"});
+				$("#resume_turnjs").turn({
+					width: 800,
+					height: 900,
+					autoCenter: true,
+					turnCorners: "",
+					display:"single",
+					duration: 1500
+				});   
+				$("#resume_turnjs").bind("start", function(event, pageObject, corner) {
+					if (corner=="tl" || corner=="tr") {
+					  event.preventDefault();
+					}
+				});        
+				$('.next').click( function(){
+					$("#resume_turnjs").turn('next');
+					$("#resume_turnjs").children().length == $("#resume_turnjs").turn("page") 
+				});
+				
+				
+				$('.prev').click( function(){
+					$("#resume_turnjs").turn("previous");
+				});
+				});
+			})(jQuery);
+			$(document).ready(function(){
+				$("#headerDiv").load("employerHeader.html");
+				$("#footerDiv").load("footer.html").hide();
+				
+				
+				$('.emp-image-div').hover(function() {
+					$(this).find('>img').stop(true,true).fadeTo(400, 0.1);
+					$(this).find('.emp-image-over').stop(true,true).fadeIn(400,1);
+				}, function() {
+					$(this).find('>img').stop(true,true).fadeTo(400, 1);
+					$(this).find('.emp-image-over').stop(true,true).fadeOut(400,0);
+				});	
+				
+				
+			});			
+			$(function(){
+				$('.editable').inlineEdit();
+			});
+		</script>
+	</head>
+<body>	
+	<div id="overlay"></div>	
+	<div id="headerDiv" ></div>
+	
+	<div id="container" class="isotope" >
+	<div class="inner" >
+		<!-- Basic Settings - Collapse & Expand starts-->
+		<div class="item" id="emp-item1">
+			<div class="emp-collapse" style="display:block">				
+				<div class="emp-image-div">
+					<img alt="Edit you profile in this section" src="images/tmp_settings.png">
+					<ul class="item-toolBar">
+						<li class="toolTitle">Basic Settings</span>
+						<li class="toolButton"><img src="images/viewdetail.png" title="View Detail"></span>
+					</ul>
+					<div class="emp-image-over">						
+						<span class="comment" > 
+						<span class="collapseHeader">Basic Settings</span><br>
+						Add this sections to reflect your General
+						Information to the profile </span>
+					</div>
+				</div>				
+			</div>
+			<div class="expand" style="display:none">
+				<span class="item-title">
+					<p> Basic Settings
+					<span class="doneedit">
+						<Button style="float:right;">Done Editing</Button>
+					</span>
+					</p>
+				</span>
+				</br>
+				<div class="clearfix" type="none" >
+				</div>
+
+				<div class="ContentArea">
+					<div>
+						<div class="ItemLabel">
+							<strong> Company Logo </strong>
+						</div>
+						<div class="ItemEdit">
+							<Button id="logoEdit" class="form-edit">Edit</Button>
+						</div>
+
+
+						<div class="ItemContent" id="logoDiv">
+							<img src = "" alt = "" id="logoImage">
+						</div>
+					</div>
+
+					<div class="clearfix" type="none" ></div>
+
+					<div class="line">
+						<div class="ItemLabel">
+							<strong> Company Name </strong>
+						</div>
+						<div class="ItemEdit">
+							<Button id="companyName_edit_btn" class="form-edit">Edit</Button>
+						</div>
+						<div class="ItemContent" id="companyNameDiv">
+
+						</div>
+					</div>
+
+					<div class="clearfix" type="none" ></div>
+					
+					<div class="line">
+						<div class="ItemLabel">
+							<strong> Name </strong>
+						</div>
+						<div class="ItemEdit">
+							<Button id="companyContactName_edit_btn" class="form-edit">Edit</Button>
+						</div>
+						<div class="ItemContent" id="companyContactNameDiv">							
+						</div>
+						<span class="fname"></span>
+						<span class="lname"></span>
+					</div>
+
+					<div class="clearfix" type="none" ></div>
+
+					<div class="line">
+						<div class="ItemLabel">
+							<strong> Username </strong>
+						</div>
+						<div class="ItemEdit">
+							<Button id="companyContactUsername_edit_btn" class="form-edit">Edit</Button>
+						</div>
+
+						<div class="ItemContent" id ="usernameDiv" >
+
+						</div>
+					</div>
+					<div class="clearfix" type="none" ></div>
+					<div class="line">
+						<div class="ItemLabel">
+							<strong> Password </strong>
+						</div>
+						<div class="ItemContent">
+							<Button id="password_edit_btn" class="passwordButton">Change Password</Button>
+						</div>
+
+					</div>
+
+					<div class="clearfix" type="none" ></div>
+					
+					<div class="line">
+						<div class="ItemLabel">						
+							<strong> primary Email  </strong>
+						</div>
+						<div class="ItemEdit">
+							<Button id="primaryEmail_edit_btn" class="form-edit">Edit</Button>
+						</div>
+						
+						<div class="ItemContent" id ="primaryEmailDiv" >
+							
+						</div>			
+					</div>	
+					
+					<div class="clearfix" type="none" ></div>
+					
+					<div class="line">
+						<div class="ItemLabel">						
+							<strong> Company Email  </strong>
+						</div>
+						<div class="ItemEdit">
+							<Button id="companyEmail_edit_btn" class="form-edit">Edit</Button>
+						</div>
+						
+						<div class="ItemContent" id ="companyEmailDiv" >
+							
+						</div>			
+					</div>	
+					
+					<div class="clearfix" type="none" ></div>
+					
+					<div class="line">
+						<div class="ItemLabel">						
+							<strong> Other Email  </strong>
+						</div>
+						<div class="ItemEdit">
+							<Button id="otherEmail_edit_btn" class="form-edit">Edit</Button>
+						</div>
+						
+						<div class="ItemContent" id ="otherEmailDiv" >
+							
+						</div>			
+					</div>	
+					
+					<div class="clearfix" type="none" ></div>
+					
+					<div class="line">
+						<div class="ItemLabel">
+							<strong> Location </strong>
+						</div>
+						<div class="ItemEdit">
+							<Button id="location_edit_btn" class="form-edit">Edit</Button>
+						</div>
+
+
+						<div class="ItemContent" id="locationDiv">
+							<span id="locationCity"> </span>
+							<span id="locationState"> </span>
+							<span id="locationZip"> </span>							
+						</div>
+
+					</div>
+
+					<div class="clearfix" type="none" ></div>					
+					</br>
+
+				</div>
+
+			</div>
+		</div>
+		<!-- Basic Settings - Collapse & Expand Ends-->
+		<!-- Education - Collapse & Expand starts -->
+				<div class="item" id="emp-item2">
+					<div class="emp-collapse" style="display:block">				
+						<div class="emp-image-div">
+							<img alt="Edit you profile in this section" src="images/tmp_about.jpg">
+							<ul class="item-toolBar">
+								<li class="toolTitle">About Us</span>
+								<li class="toolButton"><img src="images/viewdetail.png" title="View Detail"></span>
+							</ul>
+							<div class="emp-image-over">						
+								<span class="comment" > 
+								<span class="collapseHeader">About Us</span><br>
+								Add this sections to tell candidates about your company </span>
+							</div>
+						</div>				
+					</div>
+					<div class="expand" style="display:none">
+						<span class="item-title">
+						<p> About Us
+						<span class="doneedit">
+							<Button style="float:right;">Done Editing</Button>
+						</span>
+						</p>
+						</span>
+
+						<div class="ContentArea">
+							<div class="SettingsPage">
+								<ul class="clearfix" type="none">
+									<li class="SettingsListItem">
+											<span class="ItemLabel">
+												<strong> Education </strong>
+											</span>
+											<span class="ItemEdit">
+
+											</span>
+
+											<span class="ItemContent">
+												<a id="addeducation">Add Education</a>												
+											</span>
+											<div  id="ShowEduContent">		
+					
+							
+											</div>
+									</li>
+
+									<li class="SettingsListItem">
+											<span class="ItemLabel">
+												<strong> Professional Certification </strong>
+											</span>
+											<span class="ItemEdit">
+
+											</span>
+
+											<span class="ItemContent">
+												 <a id="addcertificates">Add Certificates</a>
+											</span>
+											<div  id="ShowCertifContent">		
+					
+							
+											</div>
+									</li>
+
+								</ul>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+<!-- Education - collapse & expand ends-->
+<!-- Start of Experience item div -->
+			  <div class="item" id="emp-item3">
+					<div class="emp-collapse" style="display:block">				
+						<div class="emp-image-div">
+							<img alt="Edit you profile in this section" src="images/tmp_contact.jpg">
+							<ul class="item-toolBar">
+								<li class="toolTitle">Contact Info</span>
+								<li class="toolButton"><img src="images/viewdetail.png" title="View Detail"></span>
+							</ul>
+							<div class="emp-image-over">						
+								<span class="comment" > 
+								<span class="collapseHeader">Contact Info</span><br>
+								Add this sections to reflect your contact information </span>
+							</div>
+						</div>				
+					</div>
+
+					<div class="expand" style="display:none;">
+						<span class="item-title">
+							<p> Experience
+								<span class="addPosition">
+									<Button class="doneedit" style="float:right;">Done Editing</Button>
+									<Button  id="addexperience"  style="float:right;">Add a Position</Button>
+								</span>
+							</p>
+						</span>
+						<div class="clearfix" type="none" >
+						</div>
+						<div  id="ShowContent">
+					
+
+						</div>
+
+					</div>
+				</div>
+
+<!-- End of Experience item div -->
+<!-- Start of Experience item div -->
+			  <div class="item" id="emp-item4">
+					<div class="emp-collapse" style="display:block">				
+						<div class="emp-image-div">
+							<img alt="Edit you profile in this section" src="images/tmp_jobs.jpg">
+							<ul class="item-toolBar">
+								<li class="toolTitle">Company Jobs</span>
+								<li class="toolButton"><img src="images/viewdetail.png" title="View Detail"></span>
+							</ul>
+							<div class="emp-image-over">						
+								<span class="comment" > 
+								<span class="collapseHeader">Company Jobs</span><br>
+								Add this sections to list all the jobs in your company </span>
+							</div>
+						</div>				
+					</div>
+
+					<div class="expand" style="display:none;">
+						<span class="item-title">
+							<p> Jobs
+								<span class="addPosition">
+									<Button class="doneedit" style="float:right;">Close</Button>
+									
+								</span>
+							</p>
+						</span>
+						<div class="clearfix" type="none" >
+						</div>
+						<div  id="ShowContent">
+							<div id="allJobs"> </div>
+
+						</div>
+
+					</div>
+				</div>
+
+<!-- End of Experience item div -->
+				<!--<div class="filterFrame">
+					<a class="showFilter" id="displayFilter">Show Filter</a>
+				</div>
+				<div class="filterSidebar">
+					<h3 class="first">Search</h3>
+					<div class="vline">
+						<form class="navbar-search dropdown" action="/search">
+							<input id="search-input" style="border:solid 1px #cccccc;" class="search-query-normal span3" type="text" autocomplete="off" name="query" placeholder="Job/Candidate name" value="">
+							<span class="icon-magnifier"></span>
+							<div style="left:-10000px; position:absolute">
+								<input type="submit" value="search">
+							</div>
+						</form>
+					</div>
+					<ul id="filterTags">
+						<li><span>Software<a class="tagClose">x</a></span></li>
+						<li><span>QA<a class="tagClose">x</a></span></li>
+						<li><span>Management<a class="tagClose">x</a></span></li>
+					</ul>
+					<h3>Categories</h3>
+					<h4>Job Titles</h4>					
+					<ul id="fltrJobTitle">
+						<li><a href="">SW Eng</a></li>
+						<li><a href="">HW Eng</a></li>
+						<li><a href="">QA</a></li>
+						<li><a href="">Tester</a></li>
+						<li><a href="">Manager</a></li>
+						<li><a href="">Coordinator</a></li>
+						<li><a href="">Recruiter</a></li>
+						<li><a href="">Staff</a></li>
+						<li><a href="">Engineer</a></li>
+						<li><a href="">TL</a></li>
+						<li><a href="">PL</a></li>
+						<li><a href="">PM</a></li>
+					</ul>
+					<h4>Skills</h4>					
+					<ul id="fltrSkills">
+						<li><a href="">java</a></li>
+						<li><a href="">J2EE</a></li>
+						<li><a href="">manual Testing</a></li>
+						<li><a href="">Automation testing</a></li>
+						<li><a href="">management</a></li>
+						<li><a href="">Development</a></li>
+						<li><a href="">Maintanence</a></li>
+						<li><a href="">Verification</a></li>
+						<li><a href="">C# - C Sharp</a></li>
+						<li><a href="">Python</a></li>
+						<li><a href="">Hadoop</a></li>
+						<li><a href="">Spring Framework</a></li>
+					</ul>
+					<h4>Location</h4>					
+					<ul id="fltrLoc">
+						<li><a href="">Santa Clara</a></li>
+						<li><a href="">Milpitas</a></li>
+						<li><a href="">Long Island</a></li>
+						<li><a href="">San Mateo</a></li>
+						<li><a href="">Utah</a></li>
+						<li><a href="">Nebraska</a></li>						
+					</ul>					
+					<h4>Years of Experience</h4>					
+					<ul id="fltrYrs">
+						<li><a href="">0-2 yrs</a></li>
+						<li><a href="">2-4 yrs</a></li>
+						<li><a href="">4-6 yrs</a></li>
+						<li><a href="">6-8 yrs</a></li>
+						<li><a href="">8-10 yrs</a></li>
+						<li><a href="">>10 yrs</a></li>						
+					</ul>
+					<h4>Education</h4>					
+					<ul id="fltrEdu">
+						<li><a href="">Degree</a>
+							<ul id="degreeList">
+							<li><a href="">Bachelors</a></li>
+							<li><a href="">Masters</a></li>
+							<li><a href="">Diploma</a></li>
+							<li><a href="">Doctorate</a></li>
+							</ul>
+						</li>
+						<li><a href="">University</a>
+							<ul id="univList">
+							<li><a href="">TAMU, TX</a></li>
+							<li><a href="">SCSU, CA</a></li>
+							<li><a href="">SCU, CA</a></li>
+							<li><a href="">USC, CA</a></li>
+							<li><a href="">Buffalo, NY</a></li>
+							<li><a href="">Syracuse, NY</a></li>
+							<li><a href="">NJU, NJ</a></li>
+							<li><a href="">NYU, NY</a></li>
+							<li><a href="">Rochester University</a></li>
+							<li><a href="">NPU, CA</a></li>
+							</ul>
+						</li>						
+					</ul>
+					
+				</div>-->
+<!-- Start of Experience item div -->
+			  <div class="item" id="emp-item5">
+					<div class="emp-collapse" style="display:block">				
+						<div class="emp-image-div">
+							<img alt="Edit you profile in this section" src="images/tmp_candidates.jpg">
+							<ul class="item-toolBar">
+								<li class="toolTitle">Candidates</span>
+								<li class="toolButton"><img src="images/viewdetail.png" title="View Detail"></span>
+							</ul>
+							<div class="emp-image-over">						
+								<span class="comment" > 
+								<span class="collapseHeader">Candidates</span><br>
+								Add this sections to view the list of candidate profiles viewed/saved by you </span>
+							</div>
+						</div>				
+					</div>
+					
+					<div class="expand" style="display:none;">						
+						<span class="item-title">
+							<p> Candidates
+								<span class="doneedit">
+									<Button style="float:right;">Close</Button>
+								</span>
+							</p>
+							</span>
+							
+							<div class="tabsWrapper" style="width:996px">
+								<ul id="outertabs" style="width:972px">
+								
+									<li><a rel="submittedResTab" class="defaulttab selectedtab" style="margin-left:4px;">Submitted</a></li>
+									<li><a rel="reviewedResTab" style="margin-left:4px;">Reviewed</a></li>
+									<li><a rel="interviewedTab" style="margin-left:4px;">Interviewed</a></li>
+									<li><a rel="selectedResTab" style="margin-left:4px;">Selected</a></li>
+									<li><a rel="rejectedResTab" style="margin-left:4px;">Rejected</a></li>
+									<!--<li><a rel="resultTab" style="margin-left:4px;">Result</a></li> -->
+									<li><a rel="withdrawnTab" style="margin-left:4px;">Withdrawn</a></li>
+								</ul>
+								<div class="vline">
+									<form class="navbar-search dropdown" action="/search">
+										<input id="search-input" style="border:solid 1px #cccccc;margin-left:34px;" class="search-query-normal span3" type="text" autocomplete="off" name="query" placeholder="Job name, Candidate name" value="">
+										<span class="icon-magnifier"></span>
+										<div style="left:-10000px; position:absolute">
+											<input type="submit" value="search">
+										</div>
+									</form>
+								</div>
+								<!--<span class="pagerText">page <span class="currPage">1</span> of <span class="totalPages">5</span></span>							-->
+								<div id="sortList" class="right simple small sort_by pop-up-link" style="display:block;">
+									<a class="" id="sortBtn">SORT</a>
+									<div class="pop-up dropdown">
+										<ul class="menu">
+											<li><a href="">Sort by Name</a></li>
+											<li><a href="">Sort by Date</a></li>
+										</ul>
+									</div>
+								</div>
+								
+								<!-- Submitted Resumes Tab -->
+								<div class="emp-tab-content" id="submittedResTab" >						
+									<ul id="submittedResumeList">										
+									</ul>
+																	
+								</div>	
+								<!-- Reviewed Resumes Tab -->
+								<div class="emp-tab-content" id="reviewedResTab" >
+									<ul id="reviewedResumeList">																			
+									</ul>
+															
+								</div>
+								<!-- Selected Resumes Tab-->
+								<div class="emp-tab-content" id="selectedResTab" >
+									<ul id="selectedResumeList">																			
+									</ul>
+									
+								</div>
+								<!-- Rejecetd Resumes Tab-->
+								<div class="emp-tab-content" id="rejectedResTab" >
+									<ul id="rejectedResumeList">																			
+									</ul>
+									
+								</div>
+								<!-- Interviewed Resumes Tab-->
+								<div class="emp-tab-content" id="interviewedTab" >
+									<ul id="interviewedResumeList">																			
+									</ul>
+									
+								</div>
+								<!-- Withdrawn Resumes Tab-->
+								<div class="emp-tab-content" id="withdrawnTab" >
+									<ul id="withdrawnResumeList">																			
+									</ul>
+									
+								</div>
+								<!-- Result Resumes Tab-->
+								<div class="emp-tab-content" id="resultTab" >
+									<ul id="resultResumeList">																			
+									</ul>
+									
+								</div>
+								
+								<!-- Display Resume -->
+								<div class="resumeContainer">
+								<img id="resumeClose" src="images/popup-closeButton.png" alt="close Resume">
+								<div class="resumeBody" >
+								<div class="links"> <div class="prev">&larr;</div><div class="next">&rarr;</div> </div>
+								<div id="resumeCategory" class="right simple small sort_by pop-up-link" style="display:block;">
+									<a class="" id="categoryBtn"><img src="images/tab_settings.png"></a>
+									<div class="pop-up dropdown">
+										<ul class="menu" id="resCategoryList">
+											<li><img src="images/CheckMark.jpg" alt="check"><a id="resume_submitted" href="">Submitted</a></li>
+											<li><img src="images/CheckMark.jpg" alt="check"><a id="resume_reviewed" href="">Reviewed</a></li>
+											<li><img src="images/CheckMark.jpg" alt="check"><a id="resume_interviewed" href="">Interviewed</a></li>
+											<li><img src="images/CheckMark.jpg" alt="check"><a id="resume_selected" href="">Selected</a></li>
+											<li><img src="images/CheckMark.jpg" alt="check"><a id="resume_rejected" href="">Rejected</a></li>
+											<!--<li><img src="images/CheckMark.jpg" alt="check"><a id="resume_result" href="">Result</a></li>-->
+											<li><img src="images/CheckMark.jpg" alt="check"><a id="resume_withdrawn" href="">Withdrawn</a></li>
+										</ul>
+									</div>
+								</div>
+									<ul id="resume_turnjs" >
+										<li class="pages active">
+											<div id="resume_head" class="resumeHead">
+												<div id="resName">
+												</div>
+												<div id="resTitle">
+												</div>
+												
+											</div>
+											<div id="resume_summary" class="resumeSummary">
+												<div class="summaryTitle">
+													<h2>Summary</h2>
+												</div>
+												<div id="summaryBody"> 
+													<!-- Added From JS -->
+												</div>
+											</div>
+											<div id="resume_skills" class="resumeSkills">
+												<div class="skillsTitle">
+													<h2>Skills and Expertise</h2>
+												</div>
+												<div id="skillsBody">
+													<ul id="skills_expertise">
+														<li>
+															<span class="skillLabel">Skills</span>
+															<span class="skillValue"><!-- Added From JS --></span>
+														</li>
+														<li>
+															<span class="skillLabel">Technology</span>
+															<span class="skillValue"><!-- Added From JS --></span>
+														</li>
+														<li>
+															<span class="skillLabel">Tools</span>
+															<span class="skillValue"><!-- Added From JS --></span>
+														</li>
+														<li>
+															<span class="skillLabel">Environment</span>
+															<span class="skillValue"><!-- Added From JS --></span>
+														</li>
+													</ul>
+														
+												</div>
+											</div>
+											<div id="resume_education" class="resumeEducation">										
+												<div class="eduTitle">
+													<h2>Education</h2>
+												</div>
+												<div id="eduBody">
+													<!-- Added From JS -->
+												</div>
+											</div>
+										</li>
+										<li class="pages active">
+											<div id="resume_experience" class="resumeExperience">
+												<div class="expTitle">
+													<h2>Work Experience</h2>
+												</div>
+												<div id="expBody">
+													<!-- Added From JS -->
+												</div>
+											</div>
+										</li>
+										<li class="pages active">
+											<div id="resume_experience" class="resumeExperience">
+												<div class="expTitle">
+													<h2>Work Experience 2</h2>
+												</div>
+												<div id="expBody">
+													<!-- Added From JS -->
+												</div>
+											</div>
+										</li>
+										<li class="pages active">
+											<div id="resume_experience" class="resumeExperience">
+												<div class="expTitle">
+													<h2>Work Experience 3</h2>
+												</div>
+												<div id="expBody">
+													<!-- Added From JS -->
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>								
+							</div><!--Resume Container ends -->
+							</div>	
+
+					</div>
+				</div>
+
+<!-- End of Experience item div -->
+<!-- Start of Experience item div -->
+			  <div class="item" id="emp-item6">
+					<div class="emp-collapse" style="display:block">				
+						<div class="emp-image-div">
+							<img alt="Edit you profile in this section" src="images/tmp_recruiters.jpg">
+							<ul class="item-toolBar">
+								<li class="toolTitle">Recruiters</span>
+								<li class="toolButton"><img src="images/viewdetail.png" title="View Detail"></span>
+							</ul>
+							<div class="emp-image-over">						
+								<span class="comment" > 
+								<span class="collapseHeader">Recruiters</span><br>
+								Add this sections to view recruiter details</span>
+							</div>
+						</div>				
+					</div>
+
+					<div class="expand" style="display:none;">
+						<span class="item-title">
+							<p> Experience
+								<span class="addPosition">
+									<Button class="doneedit" style="float:right;">Done Editing</Button>
+									<Button  id="addexperience"  style="float:right;">Add a Position</Button>
+								</span>
+							</p>
+						</span>
+						<div class="clearfix" type="none" >
+						</div>
+						<div  id="ShowContent">
+					
+
+						</div>
+
+					</div>
+				</div>
+
+<!-- End of Experience item div -->
+<!-- Start of Experience item div -->
+			  <div class="item" id="emp-item7">
+					<div class="emp-collapse" style="display:block">				
+						<div class="emp-image-div">
+							<img alt="Edit you profile in this section" src="images/tmp_messages.jpg">
+							<ul class="item-toolBar">
+								<li class="toolTitle">Messages</span>
+								<li class="toolButton"><img src="images/viewdetail.png" title="View Detail"></span>
+							</ul>
+							<div class="emp-image-over">						
+								<span class="comment" > 
+								<span class="collapseHeader">Messages</span><br>
+								Add this sections view or edit your message list </span>
+							</div>
+						</div>				
+					</div>
+
+					<div class="expand" style="display:none;">
+						<span class="item-title">
+							<p> Experience
+								<span class="addPosition">
+									<Button class="doneedit" style="float:right;">Done Editing</Button>
+									<Button  id="addexperience"  style="float:right;">Add a Position</Button>
+								</span>
+							</p>
+						</span>
+						<div class="clearfix" type="none" >
+						</div>
+						<div  id="ShowContent">
+					
+
+						</div>
+
+					</div>
+				</div>
+
+<!-- End of Experience item div -->
+
+	</div>
+	</div>
+	<!-- Div For logo Edit -->
+<div id="logo-popup-wrapper" class="popup-wrapper">
+		<div class="EditContentArea">
+			<div class="EditSettingsPage">
+				<ul type="none">
+
+					<li class="EditSettingsListItem">
+
+							<span class="EditItemLabel">
+								<strong> Company Logo </strong>
+							</span>
+
+							<span class="EditItemContent">
+								<span class="fileinputs">
+								<input type="file" name="logoFile" id="logoFile" />
+									<span class="fakefile logoFakeFile">
+										<input placeholder="No file chosen"/>
+										<img src="images/browse.png" alt="browse image" >
+									</span>
+								</span>
+								<!--<input type="file" name="logoFile" id="logoFile" />-->
+
+							</span>
+
+					</li>
+
+					
+					<li class="EditSettingsListItem">
+						<Button  class="save-btn" id="logo_save_btn" >Save</Button>
+						<Button id="logo_close_btn" href="#">Cancel</Button>
+					</li>
+
+
+				</ul>
+
+			</div>
+		</div>
+</div>
+<!-- End of logo Edit div -->
+<!-- Div For Company name Edit -->
+<div id="companyName-popup-wrapper" class="popup-wrapper">
+		<div class="EditContentArea">		
+			<div class="EditSettingsPage">
+				<ul type="none">
+
+					<li class="EditSettingsListItem">
+						
+							<span class="EditItemLabel" style="margin-right: 10px;">						
+								<strong> Company Name </strong>
+							</span>
+							
+							<span class="EditItemContent">
+								<input type="text" name="companyname" id="companyName" placeholder="Company Name" value= ""></input>
+								
+							</span>	
+							
+					</li>
+
+					
+					<li class="EditSettingsListItem">
+					
+						<Button class="save-btn" id="companyName_save_btn" >Save</Button>
+						<Button id="companyName_close_btn" href="#">Cancel</Button>
+					</li>
+
+
+				</ul>
+
+			</div>
+		</div>
+</div>
+<!-- End of Company Name Edit div -->
+<!-- Contact name in company Edit Div starts  -->
+<div id="companyContactName-popup-wrapper" class="popup-wrapper" >
+		<div class="EditContentArea">		
+			<div class="EditSettingsPage">
+				<ul type="none">
+
+					<li class="EditSettingsListItem">
+						
+						<span class="EditItemLabel">						
+							<strong> Name </strong>
+						</span>
+						
+						<span class="EditItemContent">
+							<input type="text" id="first_name" placeholder="First Name" class="name"  />
+							<input type="text" id="last_name" placeholder="Last Name"  class="name" />
+							
+						</span>	
+						
+					</li>
+					<li class="EditSettingsListItem">
+						<Button id="companyContactName_save_btn" >Save</Button> 							
+						<Button id="companyContactName_close_btn" href="#">Cancel</Button>
+					</li>
+
+
+				</ul>
+
+			</div>
+		</div>
+</div>	
+<!-- Contact name in company Edit Div ends -->
+<!-- Company Contact person Username DIv starts -->
+<div id="companyContactUsername-popup-wrapper" class="popup-wrapper">
+		<div class="EditContentArea">		
+			<div class="EditSettingsPage">
+				<ul type="none">
+
+					<li class="EditSettingsListItem">
+						
+							<span class="EditItemLabel">						
+								<strong> User Name</strong>
+							</span>
+							
+							<span class="EditItemContent">
+								<input type="text" name="username" id="username" placeholder="User Name" ></input>
+								
+							</span>	
+							
+					</li>
+
+					
+					<li class="EditSettingsListItem">
+					
+						<Button class="save-btn" id="companyContactUsername_save_btn" >Save</Button>
+						<Button id="companyContactUsername_close_btn" href="#">Cancel</Button>
+					</li>
+
+
+				</ul>
+
+			</div>
+		</div>
+</div>
+<!-- Company Contact person Username DIv ends  -->
+<!-- Div For Password Edit -->
+<div id="password-popup-wrapper" class="popup-wrapper">
+		<div class="EditContentArea">
+			<div class="EditSettingsPage">
+				<ul type="none">
+					<li  >
+							<span class="EditItemPasswordLabel" >
+								<strong> Old Password </strong>
+								
+							</span>
+					</li>
+					<li>
+						<input type="password" class="password error" id="currentPassword" placeholder="Current Password" />
+					</li>
+				
+					<li>
+							<span class="EditItemPasswordLabel"  >
+								<strong> New Password </strong>
+							
+							</span>
+					</li>
+					<li>
+						<input type="password" class="password error" id="newPassword" placeholder="New Password" />
+					</li>
+				
+					<li >
+							<span class="EditItemPasswordLabel" >
+								<strong> Re-type Password </strong>
+							
+							</span>
+					</li>
+					<li>
+						<input type="password" class="password error" id="retypePassword" placeholder="Re-type New Password" />
+					</li>
+					</br>
+					<li class="EditSettingsListItem">
+						<Button id="password_save_btn" >Save</Button>
+						<Button id="password_close_btn" href="#">Cancel</Button>
+					</li>
+
+				</ul>
+
+			</div>
+		</div>
+</div>
+<!-- End of Password Edit div -->
+<!-- Div For primary Email edit starts -->
+<div id="primaryEmail-popup-wrapper" class="popup-wrapper">
+		<div class="EditContentArea">		
+			<div class="EditSettingsPage">
+				<ul type="none">
+
+					<li class="EditSettingsListItem">
+						
+							<span class="EditItemLabel">						
+								<strong> Primary Email</strong>
+							</span>
+							
+							<span class="EditItemContent">
+								<input type="text" name="primaryEmail" id="primaryEmail" class="email" placeholder="Primary Email" ></input>
+								
+							</span>	
+							
+					</li>
+
+					
+					<li class="EditSettingsListItem">
+					
+						<Button class="save-btn" id="primaryEmail_save_btn" >Save</Button>
+						<Button id="primaryEmail_close_btn" href="#">Cancel</Button>
+					</li>
+
+
+				</ul>
+
+			</div>
+		</div>
+</div>
+<!-- Div For primary Email edit ends -->
+<!-- Div For Company Email edit starts -->
+<div id="companyEmail-popup-wrapper" class="popup-wrapper">
+		<div class="EditContentArea">		
+			<div class="EditSettingsPage">
+				<ul type="none">
+
+					<li class="EditSettingsListItem">
+						
+							<span class="EditItemLabel" style="margin-right: 10px;">						
+								<strong> Company Email</strong>
+							</span>
+							
+							<span class="EditItemContent">
+								<input type="text" name="companyEmail" id="companyEmail" class="email" placeholder="Company Email" ></input>
+								
+							</span>	
+							
+					</li>
+
+					
+					<li class="EditSettingsListItem">
+					
+						<Button class="save-btn" id="companyEmail_save_btn" >Save</Button>
+						<Button id="companyEmail_close_btn" href="#">Cancel</Button>
+					</li>
+
+
+				</ul>
+
+			</div>
+		</div>
+</div>
+<!-- Div For Company Email edit ends -->
+<!-- Div For Other Email edit starts -->
+<div id="otherEmail-popup-wrapper" class="popup-wrapper">
+		<div class="EditContentArea">		
+			<div class="EditSettingsPage">
+				<ul type="none">
+
+					<li class="EditSettingsListItem">
+						
+							<span class="EditItemLabel">						
+								<strong> Other Email</strong>
+							</span>
+							
+							<span class="EditItemContent">
+								<input type="text" name="otherEmail" id="otherEmail" class="email" placeholder="Other Email" ></input>
+								
+							</span>	
+							
+					</li>
+
+					
+					<li class="EditSettingsListItem">
+					
+						<Button class="save-btn" id="otherEmail_save_btn" >Save</Button>
+						<Button id="otherEmail_close_btn" href="#">Cancel</Button>
+					</li>
+
+
+				</ul>
+
+			</div>
+		</div>
+</div>
+<!-- Div For Other Email edit ends -->
+<!-- Div For Location Edit starts-->
+<div id="location-popup-wrapper" class="popup-wrapper">
+		<div class="EditBigContentArea">		
+			<div class="EditSettingsPage">
+				<ul type="none">
+					<li class="EditSettingsListItem">
+							<span class="EditItemLabel">						
+								<strong> Location </strong>
+							</span>
+
+							<span class="EditItemContent">
+								<input type="text"  name="city" id="city" class="location" placeholder="Enter city" />
+								<input type="text" name="state" id="state" class="location"  placeholder="Enter state" />
+								<input type="text"  name="zip" id="zip" class="location" placeholder= "Enter zip" />
+								<input type="hidden" id = "locationId" /> 
+								<div id="display">
+								</div>
+							</span>								
+							
+					</li>
+
+					<li class="EditSettingsListItem">
+
+						<Button id="location_save_btn" >Save</Button>
+						<Button id="location_close_btn" href="#">Cancel</Button>
+
+					</li>
+
+
+				</ul>
+
+			</div>
+		</div>
+</div>
+<!-- End of Location Edit div ends-->
+<!-- Tooltip HTML Div-->
+<div class="tt-container">
+    <div class="tt-row">
+        <div id="tt-box" class="tt-span4 empHoverCard">
+            <div class="tt-span1">
+                 <img alt="" src="http://placehold.it/96x96">
+            </div>
+            <div class="tt-span2">
+                <div class="profileDetails">
+					<p class="profileName"></p>
+					<p class="profileTitle"></p>					
+					<p class="profileDesc"></p>
+					<ul class="profileTagList">						
+					</ul>
+				</div>                
+            </div>
+            <div class="tt-row">
+                <div id="tt-box-footer" class="tt-span4">
+                    <div class="tt-gray">
+                        <a href="#" class="tt-btn pull-right" style="margin-top:5px;">View</a>
+						<span class="clientEmpName"> Recruiter Name : <a href=""></a></span><br>
+						<span class="clientPostName">Positions&nbsp;&nbsp;&nbsp;: <a href=""></a></span>
+                    </div>
+                </div>
+            </div>
+			<div class="down-arrow"></div>
+			<div class="arrow-border"></div>
+        </div>
+    </div>
+</div>
+<!-- Tooltip HTMl Div -->
+<!-- Resume Options tooltip  div starts-->
+<div class="resume-tt">
+	<div id="submitted-tooltip" >
+		<p>
+			<span class="label" >Submitted By:</span>
+			<!-- <span class="value" id="lblSubmitted">John Doe</span> -->
+			<span class="editable">John Doe</span>
+		</p>
+		<p>
+			<span class="label">Submitted Date:</span>
+			<span class="value">02/14/2013</span>
+		</p>
+	</div>
+	<div id="reviewed-tooltip">
+		<p>
+			<span class="label">Submitted By:</span>
+			<!-- <span class="value">Marc Gralhoz</span> -->
+			<span class="editable">John Doe</span>
+		</p>
+		<p>
+			<span class="label">Submitted Date:</span>
+			<span class="value">02/14/2012</span>
+		</p>
+		<p>
+			<span class="label">Reviewed By:</span>
+			<!-- <span class="value">Jane Doe</span> -->
+			<span class="editable">John Doe</span>
+		</p>
+		<p>
+			<span class="label">Reviewed Date:</span>
+			<span class="value">02/14/2011</span>
+		</p>
+		<p>
+			<span class="label">Comment:</span>
+			<span class="value comment editable">Reviewed resume list has the decsription of resumes that are reviewed</span>
+		</p>
+	</div>
+	<div id="rejected-tooltip">
+		<p>
+			<span class="label">Submitted By:</span>
+			<!-- <span class="value">Joe Frenandez</span> -->
+			<span class="editable">Joe Frenandez</span>
+		</p>
+		<p>
+			<span class="label">Submitted Date:</span>
+			<span class="value">02/14/2011</span>
+		</p>
+		<p>
+			<span class="label">Reviewed By:</span>
+			<!-- <span class="value">Donald Ray</span> -->
+			<span class="editable">Donald Ray</span>
+		</p>
+		<p>
+			<span class="label">Reviewed Date:</span>
+			<span class="value">02/14/2011</span>
+		</p>
+		<p>
+			<span class="label">Rejected By:</span>
+			<!-- <span class="value">Jonathan Swift</span> -->
+			<span class="editable">Jonathan Swift</span>
+		</p>
+		<p>
+			<span class="label">Rejected Date:</span>
+			<span class="value">02/14/2013</span>
+		</p>
+		<p>
+			<span class="label">Comment:</span>
+			<span class="value comment editable">rejected resume list has the decsription of resumes that are rejected by the employer</span>
+		</p>
+	</div>
+	<div id="selected-tooltip">
+		<p>
+			<span class="label">Submitted By:</span>
+			<!-- <span class="value">Joe Frenandez</span> -->
+			<span class="editable">Joe Frenandez</span>
+		</p>
+		<p>
+			<span class="label">Submitted Date:</span>
+			<span class="value">02/14/2011</span>
+		</p>
+		<p>
+			<span class="label">Reviewed By:</span>
+			<!-- <span class="value">Donald Ray</span> -->
+			<span class="editable">Donald Ray</span>
+		</p>
+		<p>
+			<span class="label">Reviewed Date:</span>
+			<span class="value">02/14/2011</span>
+		</p>
+		<p>
+			<span class="label">Selected By:</span>
+			<!-- <span class="value">Jonathan Swift</span> -->
+			<span class="editable">Jonathan Swift</span>
+		</p>
+		<p>
+			<span class="label">Selected Date:</span>
+			<span class="value">02/14/2013</span>
+		</p>
+		<p>
+			<span class="label">Comment:</span>
+			<span class="value comment editable">Selected resume list has the decsription of resumes that are selected by the employer</span>
+		</p>
+	</div>
+	<div id="interviewed-tooltip">
+		<p>
+			<span class="label">Submitted By:</span>
+			<!-- <span class="value">Joe Frenandez</span> -->
+			<span class="editable">Joe Frenandez</span>
+		</p>
+		<p>
+			<span class="label">Submitted Date:</span>
+			<span class="value">02/14/2011</span>
+		</p>
+		<p>
+			<span class="label">Reviewed By:</span>
+			<!-- <span class="value">Donald Ray</span> -->
+			<span class="editable">Donald Ray</span>
+		</p>
+		<p>
+			<span class="label">Reviewed Date:</span>
+			<span class="value">02/14/2011</span>
+		</p>
+		<p>
+			<span class="label">Selected By:</span>
+			<!-- <span class="value">Jonathan Swift</span> -->
+			<span class="editable">Jonathan Swift</span>
+		</p>
+		<p>
+			<span class="label">Selected Date:</span>
+			<span class="value">02/14/2013</span>
+		</p>
+		<p>
+			<span class="label">Interviewed By:</span>
+			<!-- <span class="value">Jonathan Swift</span> -->
+			<span class="editable">Jonathan Swift</span>
+		</p>
+		<p>
+			<span class="label">Interviewed Date:</span>
+			<span class="value">02/14/2013</span>
+		</p>
+		<p>
+			<span class="label">Comment:</span>
+			<span class="value comment editable">Interviewed resume list has the decsription of resumes that are interviewed by the employer</span>
+		</p>
+	</div>
+	<div id="result-tooltip">
+		<p>
+			<span class="label">Status:</span>
+			<span class="value">Hired</span>
+		</p>
+		<p>
+			<span class="label">Comment:</span>
+			<span class="value comment editable">Result resume list has the decsription of resumes whose results are announced by the employer</span>
+		</p>
+	</div>
+	<div id="withdrawn-tooltip">
+		<p>
+			<span class="label">Submitted By:</span>
+			<!-- <span class="value">Joe Smith</span> -->
+			<span class="editable">Joe Smith</span>
+		</p>
+		<p>
+			<span class="label">Submitted Date:</span>
+			<span class="value">02/14/2011</span>
+		</p>
+		<p>
+			<span class="label">Withdrawn By:</span>
+			<!-- <span class="value">Donald Ray</span> -->
+			<span class="editable">Donald Ray</span>
+		</p>
+		<p>
+			<span class="label">Withdrawn Date:</span>
+			<span class="value">02/14/2011</span>
+		</p>
+		<p>
+			<span class="label">Comment:</span>
+			<span class="value comment editable">Withdrawn resume list has the decsription of resumes that are withdrawn by the employer</span>
+		</p>
+	</div>
+	<!--<div class="left-arrow"></div>	-->
+</div>
+<!-- Resume Options tooltip div ends -->	
+
+<!-- Company Jobs pooup -->
+<div id="companyJobs">
+	<span id="closePopup" class="closebtn" style="width:100%;top:-5px" > 
+		<img src="images/popup-closeButton.png" style="float:right;"/>
+	</span>
+	<div class="company_details">
+		<div class="job-header">
+			<div class="company_logo"> <img alt="" src=""/></div>
+			<div class="job-title-location-date">
+				<a class="job-detail-link"><div class="job-title"> </div></a>
+				<div class="job-location"> </div>
+				<div class="job-date"> </div>
+			</div>
+			
+		</div>
+		<div class="clearfix"> </div>
+
+		<div class="job-details">
+			<div class="details">
+				
+				
+				<div class="about-this-job">
+					<b> About this job:</b>
+					<p></p>
+				</div>
+				<div class="responsiblities">
+					<b> Responsiblities:</b> 
+					<p> </p>
+				</div>
+				<div class="requirements">
+					<b> Requirements:</b> 
+					<p> </p>
+					
+				</div>
+				<div class="required-skills">
+					<b> Required Skills:</b> 
+					<p> </p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Company Jobs pooup -->
+
+
+	<div class="back-to-top">Back To Top</div>
+	<div class="about"> About Us</div>
+	<div id="footerDiv" ></div>
+
+</body>
+</html>
